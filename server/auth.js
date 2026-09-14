@@ -1,10 +1,10 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// In a real deployment this is an environment secret, not a checked-in
-// constant, but that's fine for an in-memory course server that resets on
-// restart.
-const JWT_SECRET = 'kniss-go-dev-secret';
+// Falls back to a checked-in dev secret so `npm start` keeps working with no
+// setup; the hosted deployment sets JWT_SECRET so tokens aren't signed with a
+// value that's sitting in the public repo.
+const JWT_SECRET = process.env.JWT_SECRET || 'kniss-go-dev-secret';
 const SESSION_TTL = '30d';
 const SIGNUP_TOKEN_TTL = '20m';
 const MIN_PASSWORD_LENGTH = 8;

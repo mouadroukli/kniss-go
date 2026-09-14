@@ -25,7 +25,11 @@ function resolveApiHost() {
   return Platform.OS === 'android' ? '10.0.2.2' : 'localhost';
 }
 
-export const API_BASE_URL = `http://${resolveApiHost()}:${SERVER_PORT}`;
+// EXPO_PUBLIC_ vars are inlined at build time (see eas.json), so a standalone
+// build points at the hosted server instead of a laptop-only localhost/
+// 10.0.2.2 address that only ever worked because the server happened to be
+// running on the same machine as the emulator during dev.
+export const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || `http://${resolveApiHost()}:${SERVER_PORT}`;
 
 export async function fetchNearbyProperties(latitude, longitude, radius) {
   const url = `${API_BASE_URL}/properties/nearby?lat=${latitude}&lon=${longitude}&radius=${radius}`;
