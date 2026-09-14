@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "Kniss Go",
+    "slug": "kniss-go",
+    "version": "1.0.0",
+    "scheme": "knissgo",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "primaryColor": "#c8ec4a",
+    "backgroundColor": "#ffffff",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1c1c1c",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.rouklimouad.knissgo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#1c1c1c"
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Kniss Go uses your photo library for your profile picture and listing photos."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c7e4c009-1440-4247-b05e-3b9a78a1075a"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c7e4c009-1440-4247-b05e-3b9a78a1075a"
+    }
+  }
+}
